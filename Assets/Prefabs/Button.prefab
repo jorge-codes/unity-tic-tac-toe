@@ -12,6 +12,7 @@ GameObject:
   - component: {fileID: 2201456131534974011}
   - component: {fileID: 2201456131534974004}
   - component: {fileID: 2201456131534974010}
+  - component: {fileID: 7478190829704711967}
   m_Layer: 5
   m_Name: Button
   m_TagString: Untagged
@@ -114,17 +115,22 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 2201456131534974004}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls:
-      - m_Target: {fileID: 0}
-        m_MethodName: Play
-        m_Mode: 3
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
+      m_Calls: []
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
+--- !u!114 &7478190829704711967
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2201456131534974006}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 17b78f89f1b244e7b683c1746e1f6415, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  button: {fileID: 0}
+  mark:
+  - {fileID: 21300000, guid: 44711c18cd61e2141a508b9900a76fa5, type: 3}
+  - {fileID: 21300000, guid: 1ee1a3a434ad07b4eb233edb59670c24, type: 3}
