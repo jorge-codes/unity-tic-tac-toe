@@ -12,6 +12,7 @@ public class GameManager : MonoBehaviour
     public Text txtPointsTie;
     public Text txtPointsLose;
     public Button[] btnBoard;
+    [Space(3)] public Sprite[] sprMark;
     
     [Header("Member variables")]
     public int pointsWin;
@@ -19,10 +20,17 @@ public class GameManager : MonoBehaviour
     public int pointsLose;
 
     private int[] _board;
+   
 
+
+    public void Play(int boardPosition)
+    {
+        Play(1, boardPosition);
+    }
     
     public void Play(int playerId, int boardPositon)
     {
+        print("PlayerID: " + playerId + " position:" + boardPositon);
         _board[boardPositon] = playerId;
     }
 
@@ -30,9 +38,11 @@ public class GameManager : MonoBehaviour
     {
         pointsWin = pointsTie = pointsLose = 0;
         UpdateScore();
-
         _board = new int[9];
         
+        // TODO
+        // assignments with lambda expressions
+        // or subscribing to events
     }
 
     private void UpdateScore()
