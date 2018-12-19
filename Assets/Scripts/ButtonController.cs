@@ -6,9 +6,16 @@ using UnityEngine.UI;
 public class ButtonController : MonoBehaviour
 {
     public Image image;
+    public Sprite uiSprite;
     public Sprite[] mark;
     private bool _isClicked;
 
+
+    public void Init()
+    {
+//        image.sprite
+    }
+    
     public void Click(int playerId)
     {
         if (_isClicked)
