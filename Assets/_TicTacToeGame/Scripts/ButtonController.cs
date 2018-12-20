@@ -7,6 +7,7 @@ public class ButtonController : MonoBehaviour
 {
     public Image image;
     public AudioSource audioSource;
+    public Animator animator;
     public Sprite uiSprite;
     public Sprite[] mark;
     public AudioClip[] clip;
@@ -24,11 +25,12 @@ public class ButtonController : MonoBehaviour
         {
             return;
         }
+        _isClicked = true;
         image.sprite = mark[playerId - 1];
         image.color = Color.white;
         audioSource.clip = clip[playerId - 1];
         audioSource.Play();
-        _isClicked = true;
+        animator.SetTrigger("Click");
     }
 
     public void Blink()
@@ -57,6 +59,7 @@ public class ButtonController : MonoBehaviour
     {
         image = GetComponent<Image>();
         audioSource = GetComponent<AudioSource>();
+        animator = GetComponent<Animator>();
     }
     
     

@@ -15,9 +15,12 @@ public class GameManager : MonoBehaviour
     public Text txtPointsWin;
     public Text txtPointsTie;
     public Text txtPointsLose;
+    [HideInInspector]
     public Button[] btnBoard;
     public AudioSource audioSourceSfxEnd;
     public AudioClip[] sfxEnd;
+    public Image imgBackground;
+    public Sprite[] backgroundList;
     [Space(3)]
     public Sprite[] sprMark;
     
@@ -72,6 +75,8 @@ public class GameManager : MonoBehaviour
     public void InitGame()
     {
         CleanBoard();
+        int randomIndex = Random.Range(0, backgroundList.Length - 1);
+        imgBackground.sprite = backgroundList[randomIndex];
         _rowWinner = null;
         panelRestart.GetComponent<Image>().raycastTarget = false;
         for (int i = 0; i < btnBoard.Length; i++)
