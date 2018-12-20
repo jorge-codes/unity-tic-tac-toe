@@ -162,17 +162,25 @@ public class GameManager : MonoBehaviour
 
     private void SetScore(int winnerID)
     {
-        
+        Animator scoreAnimator;
+        GameObject scoreUpdated;
         switch (winnerID)
         {
+            
             case 0:
                 pointsTie++;
+                scoreUpdated = txtPointsTie.transform.parent.gameObject;
                 break;
             case 1:
                 pointsWin++;
+                scoreUpdated = txtPointsWin.transform.parent.gameObject;
                 break;
             case 2:
                 pointsLose++;
+                scoreUpdated = txtPointsLose.transform.parent.gameObject;
+                break;
+            default:
+                scoreUpdated = txtPointsTie.transform.parent.gameObject;
                 break;
         }
 
@@ -184,7 +192,9 @@ public class GameManager : MonoBehaviour
                 btnBoard[index].GetComponent<ButtonController>().Blink();
             }
         }
-        
+
+        scoreAnimator = scoreUpdated.GetComponent<Animator>();
+        scoreAnimator.SetTrigger("Score");
         audioSourceSfxEnd.clip = sfxEnd[winnerID];
         audioSourceSfxEnd.Play();
         UpdateScore();
