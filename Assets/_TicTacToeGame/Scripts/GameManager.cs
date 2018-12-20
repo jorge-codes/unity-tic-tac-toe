@@ -16,6 +16,8 @@ public class GameManager : MonoBehaviour
     public Text txtPointsTie;
     public Text txtPointsLose;
     public Button[] btnBoard;
+    public AudioSource audioSourceSfxEnd;
+    public AudioClip[] sfxEnd;
     [Space(3)]
     public Sprite[] sprMark;
     
@@ -26,6 +28,7 @@ public class GameManager : MonoBehaviour
     private int[] _board;
     private List<int> _availablePositions;
     private int[][] _rowChecks;
+    private int[] _rowWinner;
     
 
     public void Play(int playerId, int boardPositon)
@@ -33,6 +36,7 @@ public class GameManager : MonoBehaviour
         _board[boardPositon] = playerId;
         _availablePositions.Remove(boardPositon);
         btnBoard[boardPositon].onClick.RemoveAllListeners();
+        btnBoard[boardPositon].interactable = false;
         int winner = CheckWinner();
 
         if (winner != 0)
@@ -68,6 +72,7 @@ public class GameManager : MonoBehaviour
     public void InitGame()
     {
         CleanBoard();
+        _rowWinner = null;
         panelRestart.GetComponent<Image>().raycastTarget = false;
         for (int i = 0; i < btnBoard.Length; i++)
         {
@@ -117,12 +122,15 @@ public class GameManager : MonoBehaviour
             if (_board[row[0]] != 0 && _board[row[0]] == _board[row[1]] && _board[row[1]] == _board[row[2]])
             {
                 // winner, winner! chicken dinner!!
+                _rowWinner = row;
                 return _board[row[0]];
             }
         }
 
         return 0;
     }
+
+    
 
     private void Start()
     {
@@ -149,6 +157,7 @@ public class GameManager : MonoBehaviour
 
     private void SetScore(int winnerID)
     {
+        
         switch (winnerID)
         {
             case 0:
@@ -161,6 +170,18 @@ public class GameManager : MonoBehaviour
                 pointsLose++;
                 break;
         }
+
+        if (_rowWinner != null)
+        {
+            for (int i = 0; i < _rowWinner.Length; i++)
+            {
+                int index = _rowWinner[i];
+                btnBoard[index].GetComponent<ButtonController>().Blink();
+            }
+        }
+        
+        audioSourceSfxEnd.clip = sfxEnd[winnerID];
+        audioSourceSfxEnd.Play();
         UpdateScore();
         FinishGame();
     }
