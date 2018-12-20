@@ -165,6 +165,15 @@ MonoBehaviour:
   - {fileID: 8300000, guid: 4683845b3a6625941af78891ae09512d, type: 3}
   - {fileID: 8300000, guid: f76e83ab2ed1578439b461d13c693378, type: 3}
   - {fileID: 8300000, guid: f4fc607624fc01c49b348bf7d35905cc, type: 3}
+  imgBackground: {fileID: 442745558}
+  backgroundList:
+  - {fileID: 21300000, guid: 3f2c2d4225374464e9a9ef198f2e4213, type: 3}
+  - {fileID: 21300000, guid: b2bbe0ac73c61684299f74e481f73ea3, type: 3}
+  - {fileID: 21300000, guid: dd7e699017dc3ea45992836f508d6f9f, type: 3}
+  - {fileID: 21300000, guid: c51cd628e654f15428c461bd597034ac, type: 3}
+  - {fileID: 21300000, guid: 38df31a2dc2b0044fa0b6889dd38959d, type: 3}
+  - {fileID: 21300000, guid: 95a05ae9fb387e9488ed669313f38108, type: 3}
+  - {fileID: 21300000, guid: 127532844857ef4448e0ccf56286a883, type: 3}
   sprMark: []
   pointsWin: 0
   pointsTie: 0
@@ -607,7 +616,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 0.392}
+  m_Color: {r: 1, g: 1, b: 1, a: 0.40392157}
   m_RaycastTarget: 1
   m_OnCullStateChanged:
     m_PersistentCalls:
